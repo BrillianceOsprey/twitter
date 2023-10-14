@@ -33,7 +33,7 @@ class CreateTweetScreenState extends State<CreateTweetScreen> {
           await picker.pickImage(source: ImageSource.gallery);
       if (imageFile != null) {
         setState(() {
-          _pickedImage = imageFile.path as File?;
+          _pickedImage = File(imageFile.path);
         });
       }
     } catch (e) {

@@ -54,11 +54,12 @@ class StorageService {
   static Future<File> compressImage(String photoId, File image) async {
     final tempDirection = await getTemporaryDirectory();
     final path = tempDirection.path;
-    File compressedImage = (await FlutterImageCompress.compressAndGetFile(
+    final cfile = (await FlutterImageCompress.compressAndGetFile(
       image.absolute.path,
       '$path/img_$photoId.jpg',
       quality: 70,
-    )) as File;
+    ));
+    final compressedImage = File(cfile!.path);
     return compressedImage;
   }
 }

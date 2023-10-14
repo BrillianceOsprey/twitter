@@ -174,6 +174,7 @@ class ProfileScreenState extends State<ProfileScreen> {
               );
             }
             UserModel userModel = UserModel.fromDoc(snapshot.data);
+            print('profile screen ${userModel.profilePicture}');
             return ListView(
               physics: const BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()),
@@ -238,12 +239,16 @@ class ProfileScreenState extends State<ProfileScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 45,
                             // TODO: to set image
                             // backgroundImage: userModel.profilePicture.isEmpty
-                            //     ? AssetImage('assets/placeholder.png')
+                            //     ?  AssetImage('assets/placeholder.png')
                             //     : NetworkImage(userModel.profilePicture),
+                            backgroundImage: userModel.profilePicture.isEmpty
+                                ? const AssetImage('assets/placeholder.png')
+                                : NetworkImage(userModel.profilePicture)
+                                    as ImageProvider,
                           ),
                           widget.currentUserId == widget.visitedUserId
                               ? GestureDetector(

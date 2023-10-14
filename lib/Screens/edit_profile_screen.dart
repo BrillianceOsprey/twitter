@@ -92,11 +92,11 @@ class EditProfileScreenState extends State<EditProfileScreen> {
       if (imageFile != null) {
         if (_imagePickedType == 'profile') {
           setState(() {
-            _profileImage = imageFile as File?;
+            _profileImage = File(imageFile.path);
           });
         } else if (_imagePickedType == 'cover') {
           setState(() {
-            _coverImage = imageFile as File?;
+            _coverImage = File(imageFile.path);
           });
         }
       }
