@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "302569347563",
+    "project_id": "twitter-firebase-mssoelay",
+    "storage_bucket": "twitter-firebase-mssoelay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302569347563:android:499fa5f56748041849a1ae",
+        "android_client_info": {
+          "package_name": "com.example.twitter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt5PQvvbrHhCTcBgxGJ_asuKKhAN4hQdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
