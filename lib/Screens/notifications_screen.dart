@@ -37,13 +37,11 @@ class NotificationsScreenState extends State<NotificationsScreen> {
             return Column(
               children: [
                 ListTile(
-                  leading: const CircleAvatar(
+                  leading: CircleAvatar(
                     radius: 20,
-                    // TODO: network image
-                    // backgroundImage: user.profilePicture.isEmpty
-                    //     ? AssetImage('assets/placeholder.png')
-                    //     // : NetworkImage(user.profilePicture),
-                    //     : NetworkImage(user.profilePicture ?? '')
+                    backgroundImage: user.profilePicture.isEmpty
+                        ? const AssetImage('assets/placeholder.png')
+                        : NetworkImage(user.profilePicture) as ImageProvider,
                   ),
                   title: activity.follow == true
                       ? Text('${user.name} follows you')

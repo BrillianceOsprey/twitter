@@ -65,12 +65,12 @@ class TweetContainerState extends State<TweetContainer> {
         children: [
           Row(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 20,
-                // TODO: to set image
-                // backgroundImage: widget.author.profilePicture.isEmpty
-                //     ? AssetImage('assets/placeholder.png')
-                //     : NetworkImage(widget.author.profilePicture),
+                backgroundImage: widget.author.profilePicture.isEmpty
+                    ? const AssetImage('assets/placeholder.png')
+                    : NetworkImage(widget.author.profilePicture)
+                        as ImageProvider,
               ),
               const SizedBox(width: 10),
               Text(

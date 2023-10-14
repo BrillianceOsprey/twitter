@@ -26,12 +26,11 @@ class SearchScreenState extends State<SearchScreen> {
 
   buildUserTile(UserModel user) {
     return ListTile(
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
         radius: 20,
-        // TODO: to set image
-        // backgroundImage: user.profilePicture.isEmpty
-        //     ? AssetImage('assets/placeholder.png')
-        //     : NetworkImage(user.profilePicture),
+        backgroundImage: user.profilePicture.isEmpty
+            ? const AssetImage('assets/placeholder.png')
+            : NetworkImage(user.profilePicture) as ImageProvider,
       ),
       title: Text(user.name),
       onTap: () {

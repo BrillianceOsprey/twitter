@@ -241,10 +241,6 @@ class ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           CircleAvatar(
                             radius: 45,
-                            // TODO: to set image
-                            // backgroundImage: userModel.profilePicture.isEmpty
-                            //     ?  AssetImage('assets/placeholder.png')
-                            //     : NetworkImage(userModel.profilePicture),
                             backgroundImage: userModel.profilePicture.isEmpty
                                 ? const AssetImage('assets/placeholder.png')
                                 : NetworkImage(userModel.profilePicture)
