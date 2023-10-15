@@ -13,8 +13,9 @@ class SearchScreen extends StatefulWidget {
 }
 
 class SearchScreenState extends State<SearchScreen> {
-  Future<QuerySnapshot>? _users;
+  Future<QuerySnapshot<Object?>>? _users;
   final TextEditingController _searchController = TextEditingController();
+  List<UserModel> userList = [];
 
   clearSearch() {
     WidgetsBinding.instance
@@ -98,17 +99,25 @@ class SearchScreenState extends State<SearchScreen> {
                     child: CircularProgressIndicator(),
                   );
                 }
-                if (snapshot.data.documents.length == 0) {
+                _users!.then((value) {
+                  // userList = value.docs;
+                  userList.clear();
+                  for (var element in value.docs) {
+                    userList.add(UserModel.fromSnapshot(element));
+                  }
+                  print('search screen search controller userList ${userList}');
+                });
+                if (userList.isEmpty) {
                   return const Center(
                     child: Text('No users found!'),
                   );
                 }
                 return ListView.builder(
-                    itemCount: snapshot.data.documents.length,
+                    itemCount: userList.length,
                     itemBuilder: (BuildContext context, int index) {
-                      UserModel user =
-                          UserModel.fromDoc(snapshot.data.documents[index]);
-                      return buildUserTile(user);
+                      // UserModel user =
+                      //     UserModel.fromDoc(snapshot.data.documents[index]);
+                      return buildUserTile(userList[index]);
                     });
               }),
     );

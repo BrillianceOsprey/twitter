@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Tweet {
@@ -37,5 +40,54 @@ class Tweet {
       likes: doc['likes'],
       retweets: doc['retweets'],
     );
+  }
+
+  Tweet copyWith({
+    String? id,
+    String? authorId,
+    String? text,
+    String? image,
+    Timestamp? timestamp,
+    int? likes,
+    int? retweets,
+  }) {
+    return Tweet(
+      id: id ?? this.id,
+      authorId: authorId ?? this.authorId,
+      text: text ?? this.text,
+      image: image ?? this.image,
+      timestamp: timestamp ?? this.timestamp,
+      likes: likes ?? this.likes,
+      retweets: retweets ?? this.retweets,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Tweet(id: $id, authorId: $authorId, text: $text, image: $image, timestamp: $timestamp, likes: $likes, retweets: $retweets)';
+  }
+
+  @override
+  bool operator ==(covariant Tweet other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.authorId == authorId &&
+        other.text == text &&
+        other.image == image &&
+        other.timestamp == timestamp &&
+        other.likes == likes &&
+        other.retweets == retweets;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        authorId.hashCode ^
+        text.hashCode ^
+        image.hashCode ^
+        timestamp.hashCode ^
+        likes.hashCode ^
+        retweets.hashCode;
   }
 }

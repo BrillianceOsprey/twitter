@@ -31,6 +31,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   showFollowingTweets(String currentUserId) {
+    print('show following tweet $currentUserId');
     List<Widget> followingTweetsList = [];
     for (Tweet tweet in _followingTweets) {
       followingTweetsList.add(FutureBuilder(
@@ -44,6 +45,7 @@ class HomeScreenState extends State<HomeScreen> {
             }
           }));
     }
+    print('show following tweet followingTweetsList $_followingTweets');
     return followingTweetsList;
   }
 
