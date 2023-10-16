@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter/Models/user_model.dart';
@@ -105,7 +107,7 @@ class SearchScreenState extends State<SearchScreen> {
                   for (var element in value.docs) {
                     userList.add(UserModel.fromSnapshot(element));
                   }
-                  print('search screen search controller userList ${userList}');
+                  print('search screen search controller userList $userList');
                 });
                 if (userList.isEmpty) {
                   return const Center(

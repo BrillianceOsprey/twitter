@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:twitter/Constants/Constants.dart';
 import 'package:twitter/Models/Tweet.dart';

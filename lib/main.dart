@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
+            // ignore: avoid_print
             print('my app page ${snapshot.hasData}');
             return FeedScreen(currentUserId: snapshot.data?.uid ?? '');
           } else {
